@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>BoilerExperience</title>
+</head>
+<body>
+    <header>
+        <section class="intro">
+            <div class="intro-text">
+                <h2>Welcome to BoilerExperience!</h2>
+                <p>This website lets you search up various classes at Purdue and see what other people wish they knew before taking the class along with general details about the class structure 
+                    that isn't covered in the syllabus. Just search up a class or click on one!</p>
+            </div>
+        </section>
+        
+        <div class="search-container">
+            <input type="text" id="searchBar" placeholder="Search for a course..." onkeyup="filterCourses()">
+        </div>
+    </header>
+    
+
+    <main>
+        <div class="container" id="courseContainer">
+            <div class="course-box CNIT176">
+                <a href="course1.html">CNIT 176</a>
+            </div>
+            <div class="course-box CNIT182">
+                <a href="course2.html">CNIT 182</a>
+            </div>
+            <div class="course-box TECH120">
+                <a href="course3.html">TECH 120</a>
+            </div>
+            <div class="course-box MA16010">
+                <a href="course4.html">MA 16010</a>
+            </div>
+            <div class="course-box SCLA101">
+                <a href="course5.html">SCLA 101</a>
+            </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; Purdue University</p>
+            <div class="footer-links">
+                <a href="https://github.com/your-repo" target="_blank">GitHub</a>
+                <a href="feedback.html">Feedback</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function filterCourses() {
+            const input = document.getElementById('searchBar').value.toLowerCase();
+            const courses = document.getElementsByClassName('course-box');
+
+            for (let i = 0; i < courses.length; i++) {
+                const courseName = courses[i].textContent.toLowerCase();
+                courses[i].style.display = courseName.includes(input) ? '' : 'none';
+            }
+        }
+
+    </script>
+</body>
+</html>
